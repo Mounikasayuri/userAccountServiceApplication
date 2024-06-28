@@ -17,7 +17,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import static com.synergech.UserAccountService.account.constants.MessageConstants.INVALID_ACC_NUMBER;
 import static com.synergech.UserAccountService.transaction.constants.MessageConstants.INVALID_ACCOUNT_NUMBER;
 import static com.synergech.UserAccountService.transaction.constants.MessageConstants.TRANSACTION_CREATED;
 import static com.synergech.UserAccountService.users.constants.MessageConstants.SUCCESS;

@@ -3,15 +3,10 @@ package com.synergech.UserAccountService.users.controllers;
 import com.synergech.UserAccountService.shared.responses.BaseResponse;
 import com.synergech.UserAccountService.users.applications.services.UserServiceImpl;
 import com.synergech.UserAccountService.users.contracts.input.UserRequestDTO;
-import com.synergech.UserAccountService.users.contracts.output.UserResponseDTO;
-import com.synergech.UserAccountService.users.domain.model.User;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/app/user")

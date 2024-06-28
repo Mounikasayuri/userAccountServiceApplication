@@ -1,10 +1,8 @@
 package com.synergech.UserAccountService.transaction.infrastructure.mapper;
 
-import com.synergech.UserAccountService.account.contracts.input.UserAccountRequestDTO;
 import com.synergech.UserAccountService.account.domain.model.UserAccount;
 import com.synergech.UserAccountService.transaction.contracts.input.TransactionRequestDTO;
 import com.synergech.UserAccountService.transaction.domain.model.Transaction;
-import com.synergech.UserAccountService.users.domain.model.User;
 import org.springframework.stereotype.Component;
 
 @Component
