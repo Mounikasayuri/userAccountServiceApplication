@@ -18,6 +18,7 @@ public class UserAccount {
     @Id
     private long accountNumber;
 
+    @Enumerated(EnumType.STRING)
     private AccountType accountType;
 
     private String ifscCode;
@@ -38,6 +39,4 @@ public class UserAccount {
 
     @OneToMany(mappedBy = "userAccount", cascade = CascadeType.ALL)
     private List<Transaction> outgoingTransactions;
-
-
 }

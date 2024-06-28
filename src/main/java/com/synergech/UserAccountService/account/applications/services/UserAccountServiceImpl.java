@@ -12,6 +12,7 @@ import com.synergech.UserAccountService.shared.responses.BaseResponse;
 import com.synergech.UserAccountService.users.domain.model.User;
 import com.synergech.UserAccountService.users.domain.repository.UserRepository;
 import jakarta.transaction.Transactional;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +23,7 @@ import java.util.List;
 import static com.synergech.UserAccountService.account.constants.MessageConstants.*;
 
 @Service
+@Slf4j
 public class UserAccountServiceImpl implements UserAccountService {
 
     @Autowired
@@ -64,6 +66,7 @@ public class UserAccountServiceImpl implements UserAccountService {
     @Override
     public ResponseEntity<BaseResponse> createUserAccount(UserAccountRequestDTO userAccountRequestDTO) throws BadRequestException {
 
+        log.info("Create account api started");
         UserAccount user = userAccountMapper.userAccountDetails(userAccountRequestDTO);
         User newUser = userRepository.getReferenceById(user.getUser().getUserId());
 
@@ -86,6 +89,8 @@ public class UserAccountServiceImpl implements UserAccountService {
 
     @Override
     public ResponseEntity<BaseResponse> editUserAccount(long accountNumber, UserAccountRequestDTO userAccountRequestDTO) {
+
+        log.info("Edit account api started");
 
         UserAccount userAccountData = userAccountMapper.userAccountDetails(userAccountRequestDTO);
         UserAccount user = userAccountRepository.findById(accountNumber).orElseThrow(() -> new NotFoundException(INVALID_ACC_NUMBER));

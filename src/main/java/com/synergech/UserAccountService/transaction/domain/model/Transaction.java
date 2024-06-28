@@ -24,6 +24,7 @@ public class Transaction {
 
     private double amount;
 
+    @Enumerated(EnumType.STRING)
     private TransactionStatus status;
 
     @ManyToOne
