@@ -11,6 +11,7 @@ import com.synergech.UserAccountService.transaction.contracts.output.Transaction
 import com.synergech.UserAccountService.transaction.domain.model.Transaction;
 import com.synergech.UserAccountService.transaction.domain.repository.TransactionRepository;
 import com.synergech.UserAccountService.transaction.infrastructure.mapper.TransactionMapper;
+import com.synergech.UserAccountService.users.domain.model.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -62,6 +63,7 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     private static TransactionResponseDTO getTransactionResponseDTO(Transaction transaction) {
+
 
         TransactionResponseDTO transactionResponseDTO = new TransactionResponseDTO();
         transactionResponseDTO.setTransId(transaction.getTransId());

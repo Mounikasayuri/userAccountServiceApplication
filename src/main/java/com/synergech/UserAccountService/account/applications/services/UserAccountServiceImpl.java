@@ -7,6 +7,7 @@ import com.synergech.UserAccountService.account.domain.model.UserAccount;
 import com.synergech.UserAccountService.account.domain.repository.UserAccountRepository;
 import com.synergech.UserAccountService.account.infrastructure.mapper.UserAccountMapper;
 import com.synergech.UserAccountService.shared.exceptions.BadRequestException;
+import com.synergech.UserAccountService.shared.exceptions.ConflictException;
 import com.synergech.UserAccountService.shared.exceptions.NotFoundException;
 import com.synergech.UserAccountService.shared.responses.BaseResponse;
 import com.synergech.UserAccountService.users.domain.model.User;
@@ -19,6 +20,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 import static com.synergech.UserAccountService.account.constants.MessageConstants.*;
 
@@ -53,7 +55,7 @@ public class UserAccountServiceImpl implements UserAccountService {
             throw new NotFoundException(INVALID_ACC_NUMBER);
         }
 
-        UserAccount userAccount = userAccountRepository.findByAccountNumber(accountNumber);
+        Optional<UserAccount> userAccount = userAccountRepository.findByAccountNumber(accountNumber);
         return ResponseEntity.ok().body((BaseResponse.builder()
                 .data(userAccount)
                 .message(USER_ACCOUNT_DATA_FETCHED)
@@ -74,6 +76,8 @@ public class UserAccountServiceImpl implements UserAccountService {
                 !user.getEmail().equalsIgnoreCase(newUser.getEmail())) {
             throw new BadRequestException(INVALID_MOBILE_OR_EMAIL);
         }
+        Optional<UserAccount> userAccount = userAccountRepository.findByAccountNumber(userAccountRequestDTO.getAccountNumber());
+        if(userAccount.isPresent()) throw new ConflictException("User already exists");
 
         UserAccount userData = userAccountRepository.save(user);
 

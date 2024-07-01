@@ -28,6 +28,14 @@ public class GlobalException {
         return new ResponseEntity<>(errorDetail, HttpStatus.BAD_REQUEST);
     }
 
+    @ResponseStatus(value = HttpStatus.CONFLICT,code = HttpStatus.CONFLICT)
+    @ExceptionHandler(ConflictException.class)
+    public ResponseEntity<Object> handleConflictException(ConflictException conflictException) {
+        ErrorDetail errorDetail = new ErrorDetail(conflictException.getMessage());
+        return new ResponseEntity<>(errorDetail, HttpStatus.CONFLICT);
+    }
+
+
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Object> handleValidationExceptions(MethodArgumentNotValidException ex) {
