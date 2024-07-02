@@ -1,5 +1,6 @@
 package com.synergech.UserAccountService.transaction.contracts.output;
 
+import com.synergech.UserAccountService.transaction.domain.model.Transaction;
 import lombok.Data;
 
 import java.util.Date;
@@ -8,7 +9,7 @@ import java.util.List;
 @Data
 public class AccountStatementResponseDTO {
 
-    private List<TransactionResponseDTO> transactionResponseDTOList;
+    private List<Transaction> transactions;
 
     private String accountNumber;
 
