@@ -1,24 +1,25 @@
 package com.synergech.UserAccountService.transaction.contracts.input;
 
-import com.synergech.UserAccountService.transaction.domain.enums.TransactionStatus;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import org.springframework.validation.annotation.Validated;
-
-import java.sql.Timestamp;
-import java.util.Date;
-
 
 @Data
 @Validated
-public class TransactionFilterDTO {
+@Getter
+@Setter
+@ToString
+public class TransactionFilterRequestDTO {
 
     private Long fromAccountNumber;
 
     private Long toAccountId;
 
-    private Timestamp fromDate;
+    private String fromDate;
 
-    private Timestamp ToDate;
+    private String ToDate;
 
     private double amount;
 

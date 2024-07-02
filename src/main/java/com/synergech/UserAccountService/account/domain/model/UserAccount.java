@@ -6,12 +6,16 @@ import com.synergech.UserAccountService.account.domain.enums.AccountType;
 import com.synergech.UserAccountService.transaction.domain.model.Transaction;
 import com.synergech.UserAccountService.users.domain.model.User;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.util.List;
 
 @Entity
 @Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "UserAccountData", schema = "user_account")
 public class UserAccount {
 

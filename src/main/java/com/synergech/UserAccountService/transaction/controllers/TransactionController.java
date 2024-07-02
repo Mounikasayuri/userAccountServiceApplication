@@ -3,7 +3,7 @@ package com.synergech.UserAccountService.transaction.controllers;
 import com.synergech.UserAccountService.shared.exceptions.BadRequestException;
 import com.synergech.UserAccountService.shared.responses.BaseResponse;
 import com.synergech.UserAccountService.transaction.applications.services.TransactionServiceImpl;
-import com.synergech.UserAccountService.transaction.contracts.input.TransactionFilterDTO;
+import com.synergech.UserAccountService.transaction.contracts.input.TransactionFilterRequestDTO;
 import com.synergech.UserAccountService.transaction.contracts.input.TransactionRequestDTO;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +26,7 @@ public class TransactionController {
     }
 
     @PostMapping("/filter")
-    public ResponseEntity<BaseResponse> transactionFilterResponse(@Valid @RequestBody TransactionFilterDTO transactionFilterDTO) throws BadRequestException {
+    public ResponseEntity<BaseResponse> transactionFilterResponse(@Valid @RequestBody TransactionFilterRequestDTO transactionFilterDTO) throws BadRequestException {
         return transactionService.searchTransaction(transactionFilterDTO);
     }
 }

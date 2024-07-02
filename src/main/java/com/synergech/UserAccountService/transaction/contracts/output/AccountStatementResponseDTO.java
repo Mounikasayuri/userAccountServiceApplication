@@ -1,15 +1,21 @@
 package com.synergech.UserAccountService.transaction.contracts.output;
 
-import com.synergech.UserAccountService.transaction.domain.model.Transaction;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 import java.util.List;
 
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class AccountStatementResponseDTO {
 
-    private List<Transaction> transactions;
+    private List<TransactionFilterResponseDTO> transactions;
 
     private String accountNumber;
 
@@ -23,8 +29,6 @@ public class AccountStatementResponseDTO {
 
     private String address;
 
-    private Date fromDate;
-
-    private Date toDate;
+    private String transDateTime;
 
 }
