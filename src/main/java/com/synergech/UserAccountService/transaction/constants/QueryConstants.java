@@ -19,10 +19,9 @@ public class QueryConstants {
             on userData.user_id = userAcc.user_id
             Left join user_account.transaction_data As transactionData
             on transactionData.account_number = userAcc.account_number
-            where transactionData.trans_date_time BETWEEN cast(:fromDate as TIMESTAMP) AND cast(:toDate as TIMESTAMP)
-            AND transactionData.status  ILIKE '%'||:status||'%'
-            AND (transactionData.from_account_number = :accountNumber
-                   OR transactionData.to_account_id = :accountNumber);""";
+            WHERE (:fromDate IS NULL OR transactionData.trans_date_time BETWEEN cast(:fromDate as TIMESTAMP) AND cast(:toDate as TIMESTAMP))
+            AND (:status IS NULL OR transactionData.status ILIKE '%'||:status||'%')
+            AND (transactionData.from_account_number = :accountNumber OR transactionData.to_account_id = :accountNumber);""";
 
 }
 

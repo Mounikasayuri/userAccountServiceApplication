@@ -1,9 +1,6 @@
 package com.synergech.UserAccountService.transaction.contracts.input;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.springframework.validation.annotation.Validated;
 
 @Data
@@ -11,6 +8,8 @@ import org.springframework.validation.annotation.Validated;
 @Getter
 @Setter
 @ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class TransactionFilterRequestDTO {
 
     private Long fromAccountNumber;

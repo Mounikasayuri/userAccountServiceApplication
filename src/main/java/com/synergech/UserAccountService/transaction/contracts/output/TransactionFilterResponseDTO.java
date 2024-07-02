@@ -2,10 +2,14 @@ package com.synergech.UserAccountService.transaction.contracts.output;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.synergech.UserAccountService.transaction.domain.enums.TransactionStatus;
-import lombok.Data;
+import lombok.*;
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class TransactionFilterResponseDTO {
 
     private Long transId;
