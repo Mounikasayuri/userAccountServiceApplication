@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 @Entity
@@ -27,7 +28,7 @@ public class Transaction {
 
     private long toAccountId;
 
-    private Date transDateTime;
+    private Timestamp transDateTime;
 
     private double amount;
 

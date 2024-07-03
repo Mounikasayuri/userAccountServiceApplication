@@ -5,8 +5,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.ToString;
 import org.springframework.validation.annotation.Validated;
-
-import java.util.Date;
+import java.sql.Timestamp;
 
 @Data
 @Validated
@@ -18,7 +17,7 @@ public class TransactionRequestDTO {
 
     private long toAccountId;
 
-    private Date transDateTime;
+    private Timestamp transDateTime;
 
     private double amount;
 

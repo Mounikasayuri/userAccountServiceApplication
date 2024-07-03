@@ -67,7 +67,6 @@ public class TransactionServiceImpl implements TransactionService {
                 .status(SUCCESS)
                 .code(HttpStatus.OK.value())
                 .build());
-
     }
 
     public ResponseEntity<BaseResponse> searchTransaction(TransactionFilterRequestDTO transactionRequestDTO) throws BadRequestException {
@@ -77,7 +76,7 @@ public class TransactionServiceImpl implements TransactionService {
 
         List<UserDetailsResultSet> accountDetails = transactionRepository.getTransactionDetails(
                 transactionRequestDTO.getStatus().toString(),
-                transactionRequestDTO.getFromAccountNumber(),
+                transactionRequestDTO.getAccountNumber(),
                 transactionRequestDTO.getFromDate(),
                 transactionRequestDTO.getToDate()
         );
@@ -94,7 +93,8 @@ public class TransactionServiceImpl implements TransactionService {
         accountStatementResponseDTO.setIfscCode(userDetails.getIfscCode());
         accountStatementResponseDTO.setBranchName(userDetails.getBranchName());
         accountStatementResponseDTO.setAccountType(userDetails.getAccountType());
-        accountStatementResponseDTO.setTransDateTime(userDetails.getTransDateTime());
+        accountStatementResponseDTO.setFromDate(transactionRequestDTO.getFromDate());
+        accountStatementResponseDTO.setToDate(transactionRequestDTO.getToDate());
 
         List<TransactionFilterResponseDTO> transactionResponseDTOList = transactionHelper.transformToTransactionFilterResponse(accountDetails);
         accountStatementResponseDTO.setTransactions(transactionResponseDTOList);
@@ -109,8 +109,8 @@ public class TransactionServiceImpl implements TransactionService {
                 .code(HttpStatus.OK.value())
                 .build());
     }
-    private static TransactionResponseDTO getTransactionResponseDTO(Transaction transaction) {
 
+    private static TransactionResponseDTO getTransactionResponseDTO(Transaction transaction) {
 
         TransactionResponseDTO transactionResponseDTO = new TransactionResponseDTO();
         transactionResponseDTO.setTransId(transaction.getTransId());
@@ -122,7 +122,6 @@ public class TransactionServiceImpl implements TransactionService {
 
         return transactionResponseDTO;
     }
-
 
 }
 

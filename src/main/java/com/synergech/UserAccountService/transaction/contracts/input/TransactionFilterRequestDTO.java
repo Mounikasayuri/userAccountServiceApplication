@@ -12,15 +12,11 @@ import org.springframework.validation.annotation.Validated;
 @NoArgsConstructor
 public class TransactionFilterRequestDTO {
 
-    private Long fromAccountNumber;
-
-    private Long toAccountId;
+    private Long accountNumber;
 
     private String fromDate;
 
     private String ToDate;
-
-    private double amount;
 
     private String status;
 

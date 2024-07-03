@@ -1,6 +1,5 @@
 package com.synergech.UserAccountService.users.infrastructure.mapper;
 
-
 import com.synergech.UserAccountService.users.contracts.input.UserRequestDTO;
 import com.synergech.UserAccountService.users.domain.model.User;
 import org.springframework.stereotype.Component;
@@ -19,6 +18,5 @@ public class UserMapper {
         user.setMobileNumber(userRequestDTO.getMobileNumber());
         return user;
     }
-
 
 }

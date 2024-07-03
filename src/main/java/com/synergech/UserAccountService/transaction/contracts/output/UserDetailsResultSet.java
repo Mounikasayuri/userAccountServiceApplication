@@ -20,7 +20,7 @@ public interface UserDetailsResultSet {
 
     Long getFromAccountNumber();
 
-   Long getToAccountId();
+    Long getToAccountId();
 
     String getTransDateTime();
 
